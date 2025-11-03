@@ -52,3 +52,17 @@ def muestra_evolucion_poblacion(poblaciones: list[RegistroPoblacion], nombre_o_c
     plt.title(f"Evolucion de la poblacion de {nombre_pais}")
     plt.plot(lista_anyos, lista_habitantes)
     plt.show()
+
+def muestra_comparativa_paises_anyo(poblaciones: list[RegistroPoblacion], anyo: int, paises: set[str]) -> None:
+    datos = filtra_por_paises_y_anyo(poblaciones, anyo, paises)
+    lista_paises = []
+    lista_habitantes = []
+    for x in datos:
+        lista_paises.append(x[0])
+        lista_habitantes.append(x[1])
+
+    plt.title(f"Población en el año {anyo}")
+    plt.bar(lista_paises, lista_habitantes)
+    plt.show()
+
+

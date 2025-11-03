@@ -36,6 +36,10 @@ def test_muestra_evolucion_poblacion(poblaciones: list[RegistroPoblacion], nombr
     print("Probando muestra_evolucion_poblacion()...")
     muestra_evolucion_poblacion(poblaciones, nombre_o_codigo)
 
+def test_muestra_comparativa_paises_anyo(poblaciones: list[RegistroPoblacion], anyo: int, paises: set[str]) -> None:
+    print("Probando muestra_comparativa_paises_anyo()...")
+    muestra_comparativa_paises_anyo(poblaciones, anyo, paises)
+
 if __name__ == '__main__':
     # poblaciones = test_lee_poblaciones('data/population.csv')
     poblaciones = lee_poblaciones('data/population.csv')
@@ -43,4 +47,5 @@ if __name__ == '__main__':
     # test_calcula_paises(poblaciones)
     # test_filtra_por_pais(poblaciones, "EUU")
     # test_filtra_por_paises_y_anyo(poblaciones, 1970, {"Latin America & Caribbean", "European Union", "East Asia & Pacific (IDA & IBRD countries)"})
-    test_muestra_evolucion_poblacion(poblaciones, "EUU")
+    # test_muestra_evolucion_poblacion(poblaciones, "EUU")
+    test_muestra_comparativa_paises_anyo(poblaciones, 1970, {"Latin America & Caribbean", "European Union", "East Asia & Pacific (IDA & IBRD countries)"})

@@ -15,3 +15,10 @@ def lee_poblaciones(fichero: str) -> list[RegistroPoblacion]:
 
         return poblaciones
     
+def calcula_paises(poblaciones: list[RegistroPoblacion]) -> list[str]:
+    paises = set()
+    for x in poblaciones:
+        paises.add(x.pais)
+
+    return sorted(paises)
+

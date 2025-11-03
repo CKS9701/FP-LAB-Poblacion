@@ -66,4 +66,4 @@ if __name__ == '__main__':
     # test_muestra_comparativa_paises_anyo(poblaciones, 1970, {"Latin America & Caribbean", "European Union", "East Asia & Pacific (IDA & IBRD countries)"})
     # test_pais_menos_poblacion(poblaciones, 1970)
     # test_paises_mas_poblacion(poblaciones, 1970)
-    test_paises_superan_poblacion(poblaciones, 3000000)
+    # test_paises_superan_poblacion(poblaciones, 3000000)

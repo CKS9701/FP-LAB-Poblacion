@@ -5,6 +5,8 @@ RegistroPoblacion = namedtuple('RegistroPoblacion', 'pais, codigo, año, censo')
 
 from matplotlib import pyplot as plt
 
+import math
+
 def lee_poblaciones(fichero: str) -> list[RegistroPoblacion]:
     with open(fichero, encoding='utf-8') as f:
         lector = csv.reader(f)
@@ -65,4 +67,27 @@ def muestra_comparativa_paises_anyo(poblaciones: list[RegistroPoblacion], anyo: 
     plt.bar(lista_paises, lista_habitantes)
     plt.show()
 
+def pais_menos_poblacion(poblaciones:list[RegistroPoblacion], anyo: int) -> str:
+    poblacion = math.inf
+    for x in poblaciones:
+        if x.año == anyo:
+            if poblacion > x.censo:
+                poblacion = x.censo
+                pais = x.pais
 
+    return pais
+
+def paises_mas_poblacion(poblaciones: list[RegistroPoblacion], anyo: int) -> list[str]:
+    paises = filtra_por_paises_y_anyo(poblaciones, anyo, set(calcula_paises(poblaciones)))
+    paises = [(pob, p) for (p, pob) in paises]
+    paises.sort(reverse=True)
+    ret = [paises[0][1], paises[1][1], paises[2][1]]
+    return ret
+
+def paises_superan_poblacion(poblaciones: list[RegistroPoblacion], minimo: int) -> list[str]:
+    ret = set()
+    for x in poblaciones:
+        if x.censo >= minimo:
+            ret.add(x.pais)
+
+    return sorted(ret)

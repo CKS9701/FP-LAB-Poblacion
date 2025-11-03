@@ -40,6 +40,21 @@ def test_muestra_comparativa_paises_anyo(poblaciones: list[RegistroPoblacion], a
     print("Probando muestra_comparativa_paises_anyo()...")
     muestra_comparativa_paises_anyo(poblaciones, anyo, paises)
 
+def test_pais_menos_poblacion(poblaciones:list[RegistroPoblacion], anyo: int) -> None:
+    print("Probando pais_menos_poblacion()...")
+    pais = pais_menos_poblacion(poblaciones, anyo)
+    print(f"El pais con menos poblacion en {anyo} es {pais}")
+
+def test_paises_mas_poblacion(poblaciones: list[RegistroPoblacion], anyo: int) -> None:
+    print("Probando paises_mas_poblacion()...")
+    paises = paises_mas_poblacion(poblaciones, anyo)
+    print(f"Los paises con más población en {anyo} son {paises}")
+
+def test_paises_superan_poblacion(poblaciones: list[RegistroPoblacion], minimo: int) -> None:
+    print("Probando paises_superan_poblacion()...")
+    paises = paises_superan_poblacion(poblaciones, minimo)
+    print(f"Los paises que superan {minimo} de poblacion son {paises}")
+
 if __name__ == '__main__':
     # poblaciones = test_lee_poblaciones('data/population.csv')
     poblaciones = lee_poblaciones('data/population.csv')
@@ -48,4 +63,7 @@ if __name__ == '__main__':
     # test_filtra_por_pais(poblaciones, "EUU")
     # test_filtra_por_paises_y_anyo(poblaciones, 1970, {"Latin America & Caribbean", "European Union", "East Asia & Pacific (IDA & IBRD countries)"})
     # test_muestra_evolucion_poblacion(poblaciones, "EUU")
-    test_muestra_comparativa_paises_anyo(poblaciones, 1970, {"Latin America & Caribbean", "European Union", "East Asia & Pacific (IDA & IBRD countries)"})
+    # test_muestra_comparativa_paises_anyo(poblaciones, 1970, {"Latin America & Caribbean", "European Union", "East Asia & Pacific (IDA & IBRD countries)"})
+    # test_pais_menos_poblacion(poblaciones, 1970)
+    # test_paises_mas_poblacion(poblaciones, 1970)
+    test_paises_superan_poblacion(poblaciones, 3000000)
